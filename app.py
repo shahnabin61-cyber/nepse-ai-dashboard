@@ -27,7 +27,8 @@ st.divider()
 
 # ===== SIDEBAR =====
 st.sidebar.title("⚙️ Settings")
-api_key = st.sidebar.text_input("Groq API Key", type="password")
+import os
+api_key = st.secrets.get("GROQ_API_KEY", None) or st.sidebar.text_input("Groq API Key", type="password")
 st.sidebar.divider()
 st.sidebar.markdown("**About**")
 st.sidebar.info("Built with Python, Streamlit, Plotly & Groq AI")
